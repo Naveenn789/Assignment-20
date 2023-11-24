@@ -8,20 +8,23 @@ namespace BasicCSharpAssignment
 {
     public static class FactClass
     {
+        public static int Factorial(this Program O,int number)
+        {
+            if (number == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return (number * O.Factorial(number - 1));
+            }
+        }
+
+    }
 
         public class Program
         {
-            public static int Factorial(int number)
-            {
-                if (number == 1)
-                {
-                    return 1;
-                }
-                else
-                {
-                    return (number * Factorial(number - 1));
-                }
-            }
+
             static void Main(string[] args)
             {
                 Console.WriteLine("Task 1 ");
@@ -70,7 +73,7 @@ namespace BasicCSharpAssignment
                         }
                         break;
                     case 2:
-                        int x = 0;
+                        int x = 1;
                         while (x < 11)
                         {
                             Console.Write(x + " ");
@@ -101,9 +104,10 @@ namespace BasicCSharpAssignment
                 Console.WriteLine("==================================================\n");
                 Console.WriteLine("Task 7: Methods");
                 Console.WriteLine("Enter a number to Finds Factorial");
+                Program obj = new Program();
                 int m = int.Parse(Console.ReadLine());
                 Program p = new Program();
-                Console.WriteLine($"The Factorial of {m} is {Factorial(m)}");
+                Console.WriteLine($"The Factorial of {m} is {obj.Factorial(m)}");
                 Console.WriteLine("==================================================\n");
                 Console.WriteLine("Task 8: Exception Handling");
                 Console.WriteLine("Enter your age");
@@ -136,20 +140,10 @@ namespace BasicCSharpAssignment
                 {
                     Console.WriteLine("Invalid input. Please enter a valid integer age.");
                 }
-
-
-
-
-
-
-
-
-
-
                 Console.ReadKey();
             }
 
 
         }
-    }
+    
 }
